@@ -6,7 +6,7 @@
 /*   By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:04:43 by elerazo-          #+#    #+#             */
-/*   Updated: 2024/12/09 23:31:33 by elerazo          ###   ########.fr       */
+/*   Updated: 2024/12/10 15:56:19 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line_bonus.h"
@@ -94,23 +94,23 @@ char	*ft_read(int fd, char *space)
 
 char	*get_next_line(int fd)
 {
-	static char	*space = NULL;
+	static char	*space[1024] = {NULL};
 	char		*nx_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
-		free(space);
-		space = NULL;
+		ft_clean(&space[fd]);
+		space[fd] = NULL;
 		return (NULL);
 	}
-	space = ft_read(fd, space);
-	if (space == NULL)
+	space[fd] = ft_read(fd, space[fd]);
+	if (space[fd] == NULL)
 		return (NULL);
-	nx_line = ft_extract_ln(space);
+	nx_line = ft_extract_ln(space[fd]);
 	if (nx_line == NULL)
-		return (ft_clean(&space));
-	space = ft_update(space);
-	if (space == NULL)
+		return (ft_clean(&space[fd]));
+	space[fd] = ft_update(space[fd]);
+	if (space[fd] == NULL)
 	{
 		free(nx_line);
 		return (NULL);
