@@ -6,7 +6,7 @@
 /*   By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:04:43 by elerazo-          #+#    #+#             */
-/*   Updated: 2024/12/09 22:28:35 by elerazo          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:28:09 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -116,22 +116,4 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	return (nx_line);
-}
-
-int	main(void)
-{
-	char	*line;
-	int		fd;
-
-	line = NULL;
-	fd = open("file.txt", O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
-	{
-		printf("%s", line);
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return (0);
 }
