@@ -6,10 +6,10 @@
 /*   By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:04:43 by elerazo-          #+#    #+#             */
-/*   Updated: 2024/12/10 18:55:03 by elerazo-         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:49:51 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_update(char *space)
 {
@@ -99,7 +99,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
-		free(space[fd]);
+		free(&space[fd]);
 		space[fd] = NULL;
 		return (NULL);
 	}
