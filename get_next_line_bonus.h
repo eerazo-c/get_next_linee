@@ -6,7 +6,7 @@
 /*   By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:06:15 by elerazo-          #+#    #+#             */
-/*   Updated: 2024/12/10 15:41:20 by elerazo-         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:41:42 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_BONUS_H
@@ -25,8 +25,8 @@
 
 //FUNCIONES PROTOTIPO
 char	*get_next_line(int fd);
-char	*up_date(char	*space);
-char	*extract_line(char *space);
+char	*ft_up_date(char	*space);
+char	*ft_extract_ln(char *space);
 char	*ft_read(int fd, char *space);
 //funciones utils
 size_t	ft_strlen(char *string);
