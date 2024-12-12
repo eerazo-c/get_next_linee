@@ -6,7 +6,7 @@
 /*   By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:04:43 by elerazo-          #+#    #+#             */
-/*   Updated: 2024/12/10 18:28:09 by elerazo-         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:22:53 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -98,11 +98,7 @@ char	*get_next_line(int fd)
 	char		*nx_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-	{
-		free(space);
-		space = NULL;
 		return (NULL);
-	}
 	space = ft_read(fd, space);
 	if (space == NULL)
 		return (NULL);
@@ -110,10 +106,10 @@ char	*get_next_line(int fd)
 	if (nx_line == NULL)
 		return (ft_clean(&space));
 	space = ft_update(space);
-	if (space == NULL)
+/*	if (space == NULL)
 	{
 		free(nx_line);
 		return (NULL);
-	}
+	}*/
 	return (nx_line);
 }
